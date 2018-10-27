@@ -74,7 +74,7 @@ class App extends Component {
 				<div className="game" >
 			</div>
 			<div className="flag-home">
-			Flags
+			立个Flag
 			</div>
 			</head>
 

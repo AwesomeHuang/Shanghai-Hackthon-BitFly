@@ -31,10 +31,10 @@ class Detail extends React.Component {
 			<div className="profile">
 			</div>
 			<div className="behindhalfflag">
-			flag：六级过500
+			flag：英语六级过500
 			</div>
 			<div className="halfwd1">
-			详述flag及动机：激励自己学习英语，备考六级…<br/>如何证明完成：拍摄12.30六级证书
+			详述flag及动机：激励自己学习英语<br/>如何证明完成：六级证书照片
 			</div>
 			<div className="flow">
 			<div className="litl">
@@ -44,13 +44,13 @@ class Detail extends React.Component {
 			<div className="bitcoin">
 			</div>
 			<div className="word1">
-			参与人数：6
+			参与人数：0
 			</div>
 			<div className="word2">
-			剩236小时
+			剩477小时
 			</div>
 			<div className="word3">
-			奖池ETH 0.3
+			奖池ETH 1
 			</div>
 			</div>
 			<div className="process1">
@@ -60,7 +60,7 @@ class Detail extends React.Component {
 			<div className="flag">
 			</div>
 			<div className="flagword">
-			立了flag!
+			立下flag!
 			</div>
 			</div>
 
@@ -74,7 +74,7 @@ class Detail extends React.Component {
 
 			<div className="process3">
 			<div className="p1p">
-			2018/11/30
+			2018/11/18
 			</div>
 			<div className="flag">
 			</div>

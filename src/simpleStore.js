@@ -1,14 +1,15 @@
 const nervos = require('./nervos')
 const {
-  abi
+	abi
 } = require('./contracts/compiled.js')
 const {
-  contractAddress
+	contractAddress
 } = require('./config')
 
 const transaction = require('./contracts/transaction')
 const simpleStoreContract = new nervos.appchain.Contract(abi, contractAddress)
 module.exports = {
-  transaction,
-  simpleStoreContract
+	contractAddress,
+	transaction,
+	simpleStoreContract
 }

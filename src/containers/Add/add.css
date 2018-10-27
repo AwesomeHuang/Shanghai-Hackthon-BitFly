@@ -6,11 +6,11 @@
 .add__content--container>input,
 .add__content--container>textarea,
 .add__content--container>button {
-  margin: 15px 0;
+  margin: 12px 0;
 }
 
 .add__content--container>textarea {
-  margin-bottom: 31px;
+  margin-bottom: 25px;
 }
 
 .add__content--container>div {
@@ -22,7 +22,7 @@
   border-radius: 4px;
   text-align: center;
   padding: 23px 0;
-  box-shadow: 0 10px 10px 0 rgba(254, 121, 43, 0.05);
+  box-shadow: 0 5px 5px 0 rgba(254, 121, 43, 0.05);
 }
 
 .add__time--year,
@@ -35,7 +35,7 @@
   padding: 9px 8px;
   font-size: 22px;
   border-radius: 4px;
-  margin: 0 6px;
+  margin: 0 4px;
 }
 
 .add__content--prompt {
@@ -55,7 +55,7 @@
   background: #fff;
   box-shadow: 0 10px 10px 0 rgba(254, 121, 43, 0.05);
   resize: none;
-  padding: 12px;
+  padding: 8px;
 }
 
 .add__content--pic {

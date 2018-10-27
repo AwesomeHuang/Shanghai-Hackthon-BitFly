@@ -2,45 +2,82 @@ import React from 'react'
 import Submit from '../../components/Submit'
 import BottomNav from '../../components/BottomNav'
 import './add.css'
-import { transaction, simpleStoreContract } from '../../simpleStore'
+import { contractAddress, transaction, simpleStoreContract } from '../../simpleStore'
 import nervos from '../../nervos'
+
+//var Nervos = require('@nervos/chain')
 
 const timeFormatter = time => ('' + time).padStart(2, '0')
 
 const submitTexts = {
-	normal: '愿此刻永恒',
-	submitting: '保存中',
-	submitted: '保存成功',
+	normal: '提交',
+	submitting: '提交中',
+	submitted: '提交成功',
 }
 
 class Add extends React.Component {
 	state = {
-		text: '',
+		title: '',
+		description: '',
+		proof:'',
+		deposit: 0.0,
+		start: Date.parse(new Date()),
+		end: 0,
 		time: new Date(),
 		submitText: submitTexts.normal,
 		errorText: '',
 	}
-	handleInput = e => {
-		this.setState({ text: e.target.value })
+	setTitle = e => {
+		this.setState({ title: e.target.value })
+	}
+	setDescription = e => {
+		this.setState({ description: e.target.value })
+	}
+	setProof = e => {
+		this.setState({ proof: e.target.value })
+	}
+	setDeposit = e => {
+		this.setState({ deposit: e.target.value })
+	}
+	setEnd = e => {
+		this.setState({ end: e.target.value * 24 * 3600 +  this.state.start})
 	}
 	handleSubmit = e => {
-		console.log(nervos.appchain.getBlockNumber());
-		console.log(nervos.appchain.accounts.wallet[0]);
-		console.log(transaction);
-		const { time, text } = this.state
+		//console.log(this.state)
+		var flag = {
+			title: this.state.title,
+			description: this.state.description,
+			proof: this.state.proof,
+			deposit: this.state.deposit,
+			start: this.state.start,
+			end: this.state.end
+		}
+		console.log(flag);
+		console.log(nervos.appchain)
+		//console.log(nervos.appchain.getAccounts());
+		//console.log(nervos.appchain.getBalance());
+		
+
+		//console.log(window.neuron.getAccount());
+		const { time, title } = this.state
 		nervos.appchain
 			.getBlockNumber()
 			.then(current => {
 				const tx = {
 					...transaction,
+					//from: window.neuron.getAccount(),
+					from: nervos.appchain.defaultAccount,
+					quota: 999999999,
+					value: parseFloat(flag.deposit),
 					validUntilBlock: +current + 88,
 				}
 				this.setState({
 					submitText: submitTexts.submitting,
 				})
-				return simpleStoreContract.methods.add(text, +time).send(tx)
+				return simpleStoreContract.methods.addFlag(flag.title, flag.description, flag.proof, flag.deposit, flag.end, flag.start).send(tx)
 			})
 			.then(res => {
+				console.log(res)
 				if (res.hash) {
 					return nervos.listeners.listenToTransactionReceipt(res.hash)
 				} else {
@@ -55,36 +92,81 @@ class Add extends React.Component {
 				}
 			})
 			.catch(err => {
+				console.log(err);
 				this.setState({ errorText: JSON.stringify(err) })
 			})
 	}
+
 	render() {
 		const { time, text, submitText, errorText } = this.state
 		return (
 			<div className="add__content--container">
 			<div className="add__time--container">
 			<span className="add__time--year">{time.getFullYear()}</span>
-			:
+			-
 			<span className="add__time--month">{timeFormatter((time.getMonth() + 1) % 12)}</span>
-			:
+			-
 			<span className="add__time--day">{timeFormatter(time.getDate())}</span>
-			:
+			
 			<span className="add__time--hour">{timeFormatter(time.getHours())}</span>
 			:
 			<span className="add__time--min">{timeFormatter(time.getMinutes())}</span>
 			</div>
 			<div className="add__content--prompt">
-			<svg className="icon" aria-hidden="true">
-			<use xlinkHref="#icon-icon-time" />
-			</svg>
-			<span>把你觉得重要的一刻，存放在链上，永远保存，随时查看</span>
+			<span>一句话描述你的Flag</span>
 			</div>
 			<textarea
 			cols="32"
-			rows="10"
+			rows="1"
 			className="add__content--textarea"
-			placeholder="留下你的时光吧..."
-			onChange={this.handleInput}
+			placeholder="我六级要过600！"
+			onChange={this.setTitle}
+			value={text}
+			/>
+			<div className="add__content--prompt">
+			<span>详细描述你的Flag</span>
+			</div>
+			<textarea
+			cols="32"
+			rows="2"
+			className="add__content--textarea"
+			placeholder="激励自己学习英语，备考六级..."
+			onChange={this.setDescription}
+			value={text}
+			/>
+			<div className="add__content--prompt">
+			<span>如何证明完成</span>
+			</div>
+			<textarea
+			cols="32"
+			rows="2"
+			className="add__content--textarea"
+			placeholder="六级证书..."
+			onChange={this.setProof}
+			value={text}
+			/>
+
+			<div className="add__content--prompt">
+			<span>时限(天)</span>
+			</div>
+			<textarea
+			cols="32"
+			rows="1"
+			className="add__content--textarea"
+			placeholder="10"
+			onChange={this.setEnd}
+			value={text}
+			/>
+
+			<div className="add__content--prompt">
+			<span>激励金(ETH)</span>
+			</div>
+			<textarea
+			cols="32"
+			rows="1"
+			className="add__content--textarea"
+			placeholder="0.1"
+			onChange={this.setDeposit}
 			value={text}
 			/>
 			<Submit text={submitText} onClick={this.handleSubmit} disabled={submitText !== submitTexts.normal} />

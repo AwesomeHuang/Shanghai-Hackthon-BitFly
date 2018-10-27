@@ -1,6 +1,6 @@
 {
-  "short_name": "First Forever",
-  "name": "First Forever",
+  "short_name": "立个 Flag",
+  "name": "立个 Flag",
   "icons": [{
     "src": "favicon.ico",
     "sizes": "64x64 32x32 24x24 16x16",
@@ -14,5 +14,6 @@
   "chainSet": {
     "1": "http://121.196.200.225:1337"
   },
-  "entry": "index.html"
+  "entry": "index.html",
+  "provider": "https://cryptape.com/"
 }

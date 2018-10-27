@@ -1,12 +1,18 @@
 .add__content--container {
-  padding: 0 15px;
+    padding: 0 15px;
+	height: 100%;
+    background:url(../../pics/big.png);
+	background-size:cover;
+	background-position: center center;
+	background-repeat: no-repeat; 
+	background-attachment: fixed;
 }
 
 .add__content--container>div,
 .add__content--container>input,
 .add__content--container>textarea,
 .add__content--container>button {
-  margin: 12px 0;
+  margin: 16px 0 0 0;
 }
 
 .add__content--container>textarea {
@@ -14,7 +20,8 @@
 }
 
 .add__content--container>div {
-  margin-bottom: 0;
+    margin-bottom: 0;
+    
 }
 
 .add__time--container {
@@ -23,33 +30,23 @@
   text-align: center;
   padding: 23px 0;
   box-shadow: 0 5px 5px 0 rgba(254, 121, 43, 0.05);
-}
-
-.add__time--year,
-.add__time--month,
-.add__time--day,
-.add__time--hour,
-.add__time--min {
-  font-weight: bold;
-  border: 1px solid #e3e3e3;
-  padding: 9px 8px;
-  font-size: 22px;
-  border-radius: 4px;
-  margin: 0 4px;
+  position: relative;
+  top:20ps;  
 }
 
 .add__content--prompt {
   color: #828181;
   font-size: 12px;
+  color:rgba(255,255,255,1);
 }
 
 .add__content--prompt svg {
-  margin-right: 8px;
+    margin-right: 8px;
 }
 
 .add__content--textarea {
   display: block;
-  width: 100%;
+  width: 90%;
   border-radius: 4px;
   border: none;
   background: #fff;

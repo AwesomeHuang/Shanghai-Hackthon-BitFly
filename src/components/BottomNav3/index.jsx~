@@ -1,0 +1,26 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+import './bottomNav.css'
+
+const BottomNav2 = ({ active, showAdd = true }) => (
+  <div className="bottomnav__bar--container">
+
+
+<div className="bottomnav__navs--container">
+<Link to="/" className={active === 'home' ? 'active' : ''}>
+<div className="frame">
+<div className="bad">
+</div>
+	      </div>
+      </Link>
+      <Link to="/detail" className={active === 'detail' ? 'active' : ''}>
+	      <div className="frame" style={{left:"45px"}}>
+	      <div className="good">
+	      </div>
+	      </div>
+      </Link>
+    </div>
+  </div>
+)
+
+export default BottomNav2

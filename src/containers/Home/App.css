@@ -7,7 +7,7 @@
 
 .App-header {
   background-color: #282c34;
-  height:74px;
+  height:67px;
   width:375px;
   display:flex;
   flex-dirction:row;
@@ -39,7 +39,7 @@
     padding: 0px 0px;
 }
 
-.flag{
+.flag-home{
     align-items:center;
     position:absolute;
     left:154px;

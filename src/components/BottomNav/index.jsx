@@ -11,22 +11,19 @@ const BottomNav = ({ active, showAdd = true }) => (
       }}
     >
       <Link to="/add">
-        <svg className="icon" aria-hidden="true">
-          <use xlinkHref="#icon-plus" />
-        </svg>
+      	  <div className="picsadd">
+	  </div>
       </Link>
     </div>
 
     <div className="bottomnav__navs--container">
       <Link to="/" className={active === 'home' ? 'active' : ''}>
-        <svg className={`icon`} aria-hidden="true">
-          <use xlinkHref="#icon-home" />
-        </svg>
+      	      <div className="picshome">
+	      </div>
       </Link>
-      <Link to="/list" className={active === 'list' ? 'active' : ''}>
-        <svg className={`icon`} aria-hidden="true">
-          <use xlinkHref="#icon-user" />
-        </svg>
+      <Link to="/show" className={active === 'detail' ? 'active' : ''}>
+	      <div className="picsmine">
+	      </div>
       </Link>
     </div>
   </div>

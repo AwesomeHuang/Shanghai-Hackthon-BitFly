@@ -21,7 +21,7 @@ class Add extends React.Component {
 		description: '',
 		proof:'',
 		deposit: 0.0,
-		start: Date.parse(new Date()),
+		start: Date.parse(new Date()) / 1000,
 		end: 0,
 		time: new Date(),
 		submitText: submitTexts.normal,
@@ -41,6 +41,8 @@ class Add extends React.Component {
 	}
 	setEnd = e => {
 		this.setState({ end: e.target.value * 24 * 3600 +  this.state.start})
+		console.log(this.state.end)
+		console.log(typeof this.state.end)
 	}
 	handleSubmit = e => {
 		//console.log(this.state)
@@ -48,9 +50,9 @@ class Add extends React.Component {
 			title: this.state.title,
 			description: this.state.description,
 			proof: this.state.proof,
-			deposit: this.state.deposit,
-			start: this.state.start,
-			end: this.state.end
+			deposit: +this.state.deposit,
+			start: +this.state.start,
+			end: +this.state.end
 		}
 		console.log(flag);
 		console.log(nervos.appchain)
@@ -74,6 +76,7 @@ class Add extends React.Component {
 				this.setState({
 					submitText: submitTexts.submitting,
 				})
+				console.log(typeof flag.deposit)
 				return simpleStoreContract.methods.addFlag(flag.title, flag.description, flag.proof, flag.deposit, flag.end, flag.start).send(tx)
 			})
 			.then(res => {
@@ -101,17 +104,6 @@ class Add extends React.Component {
 		const { time, text, submitText, errorText } = this.state
 		return (
 			<div className="add__content--container">
-			<div className="add__time--container">
-			<span className="add__time--year">{time.getFullYear()}</span>
-			-
-			<span className="add__time--month">{timeFormatter((time.getMonth() + 1) % 12)}</span>
-			-
-			<span className="add__time--day">{timeFormatter(time.getDate())}</span>
-			
-			<span className="add__time--hour">{timeFormatter(time.getHours())}</span>
-			:
-			<span className="add__time--min">{timeFormatter(time.getMinutes())}</span>
-			</div>
 			<div className="add__content--prompt">
 			<span>一句话描述你的Flag</span>
 			</div>
@@ -128,7 +120,7 @@ class Add extends React.Component {
 			</div>
 			<textarea
 			cols="32"
-			rows="2"
+			rows="5"
 			className="add__content--textarea"
 			placeholder="激励自己学习英语，备考六级..."
 			onChange={this.setDescription}
@@ -139,7 +131,7 @@ class Add extends React.Component {
 			</div>
 			<textarea
 			cols="32"
-			rows="2"
+			rows="5"
 			className="add__content--textarea"
 			placeholder="六级证书..."
 			onChange={this.setProof}

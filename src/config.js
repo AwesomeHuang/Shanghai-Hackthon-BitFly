@@ -11,7 +11,7 @@ const config = {
   privateKey:
     "0x1f3ed395f6ec32467d905b62f6b3eed5100db80e7d6fa4f9390b5e0cabc06671",
   //contractAddress: "0x45bf81c159f7f531b9d27d4035f66fa7670f4b29"
-  contractAddress: "0xc54bA76c4e668d807B901D26b871D2E649f8863C"
+  contractAddress: "0x1c3DbD8bEaf93e31668d1549816a68c2A20c40cB"
 };
 
 module.exports = config

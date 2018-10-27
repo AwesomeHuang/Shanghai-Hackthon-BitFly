@@ -1,24 +1,51 @@
-import React from 'react'
-import logo from '../../public/images/logo.svg'
-import BottomNav from '../../components/BottomNav'
-import './home.css'
-import { transaction, simpleStoreContract } from '../../simpleStore'
+import React, { Component } from 'react';
+import './App.css';
+import MyComponent from './cmpnt1.js'
+import { BrowserRouter } from 'react-router-dom'
+import BottomNav from '../../components/BottomNav/index.jsx'
+import { contractAddress, transaction, simpleStoreContract  } from '../../simpleStore'
+
 import nervos from '../../nervos'
 
-const Home = () => (
-  <div>
-	<div className="home__logo--container">
-	  <img src={logo} alt="logo" />
-	  <span className="home__logo--text">First Forever </span>
-	</div>
-	<div className="home__slogan--container">
-	  <h1 className="home__slogan--title">最初即永恒</h1>
-	  <p className="home__slogan--text">
-		人生有很多的第一次，如第一次恋爱，第一次找到工作，第一次领到工资等等，但是随着时间的流逝，还来不及回味就已经过去，如果有一个地方能让你存下这一刻的时光，永恒流传，你愿意留下你的时光吗？
-	  </p>
-	</div>
-	<BottomNav active={'home'} />
-  </div>
-)
+class App extends Component {
 
-export default Home
+	handleClick = e => {
+		// redirect to flag details page
+
+	}
+
+	let flag_items = []
+	let flags = simpleStoreContract.methods.getTotalFlags();
+	for(let i = 0; i < flags.length; i++){
+		let flag = {
+			title = '',
+			people = 0,
+			eth = 0,
+			time_left = 0
+		}
+		flag.title = simpleStoreContract.methods.getTitle(flags[i])
+		flags.people = simpleStoreContract.methods.getParticipantNumber(flags[i])
+		flags.eth = simpleStoreContract.methods.getDepositTotal(flags[i])
+		let time_left = simpleStoreContract.methods.getDdl(flags[i]) - Date.parse(new Date)
+		flags.time_left = Math.round(time_left / 3600)
+		flag_items.push(<MyComponent flag = {flag}, onClick = {this.handleClick}>)
+	}
+
+	render() {
+		return (
+			<div  className="App">
+			<head className="App-header">
+			<div className="game">
+			</div>
+			<div className="flag">
+			立个flag
+			</div>
+			</head>
+			
+			{flag_items}
+
+			<BottomNav />
+		);
+	}
+}
+export default App;

@@ -108,7 +108,7 @@ class Add extends React.Component {
 			<span>一句话描述你的Flag</span>
 			</div>
 			<textarea
-			cols="32"
+			cols="28"
 			rows="1"
 			className="add__content--textarea"
 			placeholder="我六级要过600！"
@@ -119,8 +119,8 @@ class Add extends React.Component {
 			<span>详细描述你的Flag</span>
 			</div>
 			<textarea
-			cols="32"
-			rows="5"
+			cols="28"
+			rows="3"
 			className="add__content--textarea"
 			placeholder="激励自己学习英语，备考六级..."
 			onChange={this.setDescription}
@@ -130,8 +130,8 @@ class Add extends React.Component {
 			<span>如何证明完成</span>
 			</div>
 			<textarea
-			cols="32"
-			rows="5"
+			cols="28"
+			rows="3"
 			className="add__content--textarea"
 			placeholder="六级证书..."
 			onChange={this.setProof}
@@ -142,7 +142,7 @@ class Add extends React.Component {
 			<span>时限(天)</span>
 			</div>
 			<textarea
-			cols="32"
+			cols="28"
 			rows="1"
 			className="add__content--textarea"
 			placeholder="10"
@@ -154,7 +154,7 @@ class Add extends React.Component {
 			<span>激励金(ETH)</span>
 			</div>
 			<textarea
-			cols="32"
+			cols="28"
 			rows="1"
 			className="add__content--textarea"
 			placeholder="0.1"

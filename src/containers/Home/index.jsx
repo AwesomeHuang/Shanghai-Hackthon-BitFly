@@ -73,7 +73,7 @@ class App extends Component {
 			<head className="App-header">
 				<div className="game" >
 			</div>
-			<div className="flag-home">
+			<div className="flag-home1">
 			立个Flag
 			</div>
 			</head>

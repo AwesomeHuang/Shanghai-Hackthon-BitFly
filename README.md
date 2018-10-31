@@ -190,7 +190,7 @@ module.exports = config
 
 ```
 
-​	这个时候就可以移除掉自己的私钥信息了，transaction.js中的from，to属性也都去掉：
+​	这个时候就可以移除掉自己的私钥信息了，transaction.js中的from，privateKey属性也都去掉：
 
 ```js
 const nervos = require('../nervos')

@@ -24,7 +24,7 @@
 
 # 技术细节
 
-前端使用React.js, 链端环境是Nervos的测试链，Nervos链上合约的编写使用的也是Solidity，但是Nervos还没有类似remix的一键式布署方案，所以只能先在remix里面编写、测试合约，然后复制abi, bytecode, 再调用Nervos的API去布署到他们的测试链上
+前端使用React.js, 链端环境是Nervos的测试链，Nervos链上合约的编写使用的也是Solidity，但是Nervos还没有类似remix的一键式布署方案，所以只能先在remix里面编写、测试合约，然后复制abi, bytecode, 再调用Nervos的API去布署到Nervos的测试链上
 
 ## 1.合约布署
 

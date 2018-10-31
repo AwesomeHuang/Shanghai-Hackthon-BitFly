@@ -24,9 +24,9 @@
 
 # 技术细节
 
-前端使用React.js, 链端环境是Nervos的测试链，Nervos链上合约的编写使用的也是Solidity，但是Nervos还没有类似remix的一键式布署方案，所以只能先在remix里面编写、测试合约，然后复制abi, bytecode, 再调用Nervos的API去布署到Nervos的测试链上
+前端使用React.js, 链端环境是Nervos的测试链，Nervos链上合约的编写使用的也是Solidity，但是Nervos还没有类似remix的一键式部署方案，所以只能先在remix里面编写、测试合约，然后复制abi, bytecode, 再调用Nervos的API去部署到Nervos的测试链上
 
-## 1.合约布署
+## 1.合约部署
 
 src文件夹结构：
 
@@ -51,7 +51,7 @@ src文件夹结构：
     └── images
 ```
 
-合约布署需要用到的文件：
+合约部署需要用到的文件：
 
 ```
 .
@@ -66,7 +66,7 @@ src文件夹结构：
 └── simpleStore.js
 ```
 
-### 布署流程：
+### 部署流程：
 
 1.复制Contract.sol的内容到remix，完成编译、调试后复制abi、bytecode里的object到compiled.js
 
@@ -86,7 +86,7 @@ const config = {
   // chain: "http://121.196.200.225:1337",
   chain: "https://node.cryptape.com",	// Nervos测试链的地址
   privateKey: "<钱包私钥>",
-  contractAddress: "<合约布署完成后将地址填在此处，现在先留空>"
+  contractAddress: "<合约部署完成后将地址填在此处，现在先留空>"
 }
 module.exports = config
 ```
@@ -128,7 +128,7 @@ module.exports = transaction
 
 ```
 
-### 3.布署
+### 3.部署
 
 ​	deploy.js:
 
@@ -175,9 +175,9 @@ nervos.appchain.getBlockNumber().then(current => {
 
 ```
 
-​	直接运行node deploy.js来布署合约
+​	直接运行node deploy.js来部署合约
 
-​	布署成功后会返回合约地址，复制合约地址然后填入config.js：
+​	部署成功后会返回合约地址，复制合约地址然后填入config.js：
 
 ```js
 const config = {
@@ -207,7 +207,7 @@ const transaction = {
 module.exports = transaction
 ```
 
-​	合约布署流程结束
+​	合约部署流程结束
 
 ### 3.与合约交互
 
@@ -282,7 +282,7 @@ handleSubmit = e => {
 
 ## 4. 运行代码
 
-合约按照上述流程布署好后，运行代码：
+合约按照上述流程部署好后，运行代码：
 
 ```js
 npm install

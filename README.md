@@ -36,6 +36,8 @@
 
 4.去水龙头获取测试币：https://dapp.cryptape.com/faucet/
 
+5.区块链浏览器：https://microscope.cryptape.com
+
 ## 1.合约部署
 
 src文件夹结构：

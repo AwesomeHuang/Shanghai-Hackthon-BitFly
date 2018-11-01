@@ -36,9 +36,17 @@
 
 4.去水龙头获取测试币：https://dapp.cryptape.com/faucet/
 
-5.区块链浏览器：https://microscope.cryptape.com
+5.安装依赖包:
 
-6.文档: https://docs.nervos.org/nervos-appchain-docs/
+```js
+npm install
+OR:
+yarn install
+```
+
+7.区块链浏览器：https://microscope.cryptape.com
+
+8.文档: https://docs.nervos.org/nervos-appchain-docs/
 
 ## 1.合约部署
 
@@ -299,10 +307,8 @@ handleSubmit = e => {
 合约按照上述流程部署好后，运行代码：
 
 ```js
-npm install
 npm start
 OR:
-yarn install
 yarn start
 ```
 

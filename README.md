@@ -38,6 +38,8 @@
 
 5.区块链浏览器：https://microscope.cryptape.com
 
+6.文档: https://docs.nervos.org/nervos-appchain-docs/
+
 ## 1.合约部署
 
 src文件夹结构：
